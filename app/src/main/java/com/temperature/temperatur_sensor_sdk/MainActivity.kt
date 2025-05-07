@@ -12,15 +12,15 @@ import com.temperature.temperatur_sensor_sdk.screen.MainScreen
 import com.temperature.temperatur_sensor_sdk.ui.theme.TemperatursensorsdkTheme
 import com.temperature.temperatur_sensor_sdk.util.BluetoothUtil
 // 主活動，應用程式進入點，負責初始化藍牙權限與顯示主畫面
-class MainActivity : ComponentActivity() {
+class MainActivity : ComponentActivity() { //定義Activity
     private lateinit var bluetoothPermissionLauncher: ActivityResultLauncher<Array<String>>// 宣告藍牙權限請求啟動器
 
     companion object {
         private var permissionLauncher: ActivityResultLauncher<Array<String>>? = null // 靜態變數儲存權限啟動器實例，供其他類別呼叫
 
     }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
+//「這段是 Activity 建立時會執行的程式碼，首先我呼叫 super.onCreate 初始化父類別，接著使用 enableEdgeToEdge() 啟用邊緣到邊緣顯示，讓畫面可以延伸到狀態列與底部導覽列下方，提供更沈浸式的使用者體驗。」
+    override fun onCreate(savedInstanceState: Bundle?) { 
         super.onCreate(savedInstanceState)// 呼叫父類別的 onCreate 方法
         enableEdgeToEdge()  // 啟用全螢幕邊緣到邊緣的顯示模式
   // 初始化藍牙權限請求啟動器，並指定取得權限後的回呼邏輯
